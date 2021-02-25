@@ -3,6 +3,45 @@ Cheat sheet for Power Apps Portal liquid
 
 ## Liquid Objects
 
+### Entity reference object
+
+Object that represents lookup (entity reference)
+
+| Attribute | Description |
+|-----------|-------------|
+| id | The guid of the referenced entity as a string|
+| logical_name | The dataverse logical name of the entity |
+| name | The primary name attribute of the referenced entity |
+
+### Option Set Value (or Dataverse Choise)
+
+Object that represents option set/ picklist/ choise column.
+
+| Attribute | Description |
+|-----------|-------------|
+| label | The localized label of the option set|
+| value | The integer value of the option set |
+
+### Note
+
+Object that represents note (annotation) record. Extend entity object.
+
+| Attribute | Description |
+|-----------|-------------|
+| documentbody | File body of the note as base64 encoded string. Not loaded with rest of the attribute and only available ondemand ie by direct call. May slow down rendering of the page |
+| url | Url path to the built-in annotation handler for the portal. If user has permission and note has attached file, request to this url will download the note file attachment |
+
+### entities
+
+Allows to load dataverse entity by ID. If the entity exists entity object will be returned. If not found will return null
+
+| Attribute | Description |
+|-----------|-------------|
+| id | The guid if the entity |
+| logical_name | The dataverse logical name of the entity |
+| notes | Returns array of notes (as notes objects) associated with the entity, ordered from oldest to newest by createon field |
+| <attribute or relationship name> | You can access any attribute or relationship of the Dataverse entity by it's logical name. |
+
 ### page
 
 Refers to the current page. Combines the attributes from sitemap and entity type records. Extends entity object.
@@ -41,8 +80,6 @@ Provides information about the current HTTP request
 
 Allows to load content snippets by name. If snippet not found will return null.
 
-{{snippets[Header]}}
-
 {{snippets['My Awesome Snippet']}}
 
 ### sitemarkers
@@ -53,13 +90,7 @@ Allows to load site marker by name. If not found will return null. Extends entit
 |-----------|-------------|
 | url | The url of the site marker target page |
 
-### entities
 
-Allows to load dataverse entity by ID. If the entity exists entity object will be returned. If not found will return null
-
-| Attribute | Description |
-|-----------|-------------|
-| url | The url of the site marker target page |
 
 ## Liquid Tags
 
