@@ -5,7 +5,7 @@ Cheat sheet for Power Apps Portal liquid
 
 ### page
 
-Rerers to the current page. Combines the attributes from sitemap and entity type records. Extends entity object.
+Refers to the current page. Combines the attributes from sitemap and entity type records. Extends entity object.
 
 | Attribute | Description |
 |-----------|-------------|
@@ -18,7 +18,7 @@ Rerers to the current page. Combines the attributes from sitemap and entity type
 
 ### user
 
-Rerers to the current portal user. Provides access to the underlying contact record and some additional attributes. If user is not signed in will return null. Extends entity object.
+Refers to the current portal user. Provides access to the underlying contact record and some additional attributes. If user is not signed in will return null. Extends entity object.
 
 | Attribute | Description |
 |-----------|-------------|
