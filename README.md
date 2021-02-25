@@ -91,8 +91,39 @@ Allows to load site marker by name. If not found will return null. Extends entit
 | url | The url of the site marker target page |
 
 
-
 ## Liquid Tags
+
+### fetchxml
+
+Allows users to query data from Dataverse and render the results in a page using fetchxml query syntax. Learn more about fetchxml [here](https://docs.microsoft.com/en-us/powerapps/developer/data-platform/use-fetchxml-construct-query).
+
+{% fetchxml contactFeed %}
+<fetch version"1.0" mapping="logical">
+  <entity name="contact">
+    <attribute name="fullname">
+    <attribute name="emailaddress1">
+    <attribute name="parentcustomerid">
+  </entity>
+</fetch>
+{% endfetchxml %}
+
+{% for result in contactFeed.results.entities %}
+// do something with results
+{% endfor %}
+
+Result attribute contains couple of useful attributes
+
+| Attribute | Description |
+|-----------|-------------|
+| entities | Result of fetchxml query |
+| entityname | Logical name of the entity |
+| extensiondata | Gets the structure that contains extra data. |
+| MinActiveRowVersion | Gets the lowest active row version value. |
+| MoreRecords | Gets whether there are more records available. |
+| PagingCookie | Gets the current paging information |
+| TotalRecordCount | Gets the total number of records in the collection.
+ReturnTotalRecordCount was true when the query was executed. |
+| TotalRecordCountLimitExceeded | Gets whether the results of the query exceeds the total record count |
 
 ### entityform
 
