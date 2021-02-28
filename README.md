@@ -97,6 +97,7 @@ Allows to load site marker by name. If not found will return null. Extends entit
 
 Allows users to query data from Dataverse and render the results in a page using fetchxml query syntax. Learn more about fetchxml [here](https://docs.microsoft.com/en-us/powerapps/developer/data-platform/use-fetchxml-construct-query).
 
+```
 {% fetchxml contactFeed %}
 <fetch version"1.0" mapping="logical">
   <entity name="contact">
@@ -110,6 +111,7 @@ Allows users to query data from Dataverse and render the results in a page using
 {% for result in contactFeed.results.entities %}
 // do something with results
 {% endfor %}
+```
 
 Result attribute contains couple of useful attributes
 
